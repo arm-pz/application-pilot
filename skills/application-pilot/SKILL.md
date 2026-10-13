@@ -2,23 +2,19 @@
 name: application-pilot
 description: >-
   Runs the job search around the applications: turns role criteria into a live
-  shortlist, scores each role for fit with evidence, keeps the application
-  tracker (status, submission and follow-up dates, dedupe across boards), flags
-  roles that went quiet past an aging threshold, drafts follow-up messages and
-  interview briefings, and reviews the funnel for what to change next week. Use
-  when the user wants to find, organize, compare, track or follow up on roles,
-  for example "find backend roles posted this week", "build my application
-  tracker", "which applications went quiet past seven days", "write the
-  follow-up for these", "brief me before Thursday's interview". Not for writing
-  the application material itself (a rewritten resume, bullets, summaries,
-  LinkedIn rewrite, answer scripts): use job-lens. Not for judging material
-  (scans, ATS checks, critique, rejection reasons, gap analysis): use
-  recruiter-lens. Lightweight by design: Markdown and CSV that the user can
-  open and edit, no CLI, no cloud state, no telemetry, no browser automation.
-  Never submits on the user's behalf; applications go out only in batches the
-  user approves. If the job-application-agent skill is installed and the user
-  wants automated form filling, batch submission, or a programmatic ledger,
-  that skill owns it and this one stays out of the way.
+  shortlist, scores each role for fit with evidence, keeps a reviewable tracker
+  (status, submission and follow-up dates, dedupe), flags roles gone quiet past
+  an aging threshold, drafts follow-ups and interview briefings, and reviews the
+  funnel weekly. Use when the user wants to find, organize, compare, track or
+  follow up on roles: "find backend roles posted this week", "build my
+  application tracker", "brief me before Thursday's interview". Not for writing
+  application material (resume, bullets, summaries, LinkedIn, answer scripts):
+  use job-lens. Not for judging (scans, ATS checks, critique, rejection reasons,
+  gap analysis): use recruiter-lens. Markdown and CSV only: no CLI, no cloud
+  state, no telemetry, no browser automation, no submit path; the user approves
+  every application. If job-application-agent is installed and the user wants
+  automated filling, batch submission, or a programmatic ledger, that skill owns
+  it.
 version: 1.0.0
 argument-hint: "[mode] [target]"
 user-invocable: true

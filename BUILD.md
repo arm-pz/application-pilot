@@ -71,9 +71,31 @@ So application-pilot was narrowed instead of extended. It keeps what the neighbo
 
 What is said about the neighbour in this repo is limited to what its own documentation states, and its files were only read, never modified.
 
-## Next
+## Step 6: Contract check across the family
 
-- Flat install to `~/.qoder/skills/application-pilot` (skill contents only, no README at that level).
-- Marketplace entry in `arm-pz/caffeinity-skills`.
-- Routing edits in job-lens and recruiter-lens so all four skills state the same split.
-- Validate against the skill checklist, then real-world test on a live search.
+All three job-search skills' descriptions were measured, because the 1024-character frontmatter limit is easy to cross while adding a boundary clause:
+
+| Skill | Before | After |
+|---|---|---|
+| application-pilot | new | 1002 |
+| job-lens | 1027 (already over the limit) | 1000 |
+| recruiter-lens | 922 | 997 |
+
+job-lens was over the limit before this work, which the added clause would have made worse; the trim moved the MCP tool names out of the description (they still live in `references/github-mcp.md`) and compressed two clauses. recruiter-lens's test file already routed "finding, evaluating, or submitting job applications" to job-application-agent, so that line was split: search coordination now names application-pilot, automated submission still names job-application-agent. Both `tests/test-discovery.md` files and the SKILL.md descriptions now state the same four-way split, and each repo was committed separately.
+
+Flat installs were re-synced from the clones and verified byte-identical with `diff -rq`.
+
+## Validated
+
+- `SKILL.md` present, name matches folder, frontmatter opens and closes with `---`
+- descriptions single-line and within 1024: application-pilot 1002, job-lens 1000, recruiter-lens 997
+- bodies well under 500 lines (80 / 68 / 105), no `TODO:` markers, no extraneous files in the skill folders
+- `marketplace.json` parses, nine plugins, `application-pilot` resolves to `arm-pz/application-pilot`
+
+## Open
+
+- Create the `arm-pz/application-pilot` remote and push (local commits only so far; four repos touched).
+- `gh` on this machine is the npm shim and crashes with a TypeError, so repo creation needs either a working `gh` or the browser.
+- Run the discovery tests for real: install all four skills in one session and check which fires for each prompt in `tests/test-discovery.md`.
+- Test mode 2 against a live search, where the date-honesty rules actually bite.
+- job-lens has no `argument-hint` or `user-invocable` keys while recruiter-lens and application-pilot do, so `/job-lens` may not appear as a slash command. Left as-is pending your call.
