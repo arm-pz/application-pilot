@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "application-pilot",
+  "version": "0.1.0",
+  "description": "Runs the job search around the applications: search brief, role discovery with honest dates, rubric-based fit scoring, application tracker, follow-up queue, interview briefings and a funnel review. Never submits; the user approves every application. Sibling of job-lens (produces material) and recruiter-lens (judges material).",
+  "author": {
+    "name": "arm-pz",
+    "url": "https://github.com/arm-pz"
+  },
+  "homepage": "https://github.com/arm-pz/application-pilot",
+  "repository": "https://github.com/arm-pz/application-pilot",
+  "keywords": ["job-search", "application-tracker", "resume", "interview-prep", "follow-up"],
+  "skills": "./skills/"
+}
