@@ -48,4 +48,6 @@ Each entry gives a prompt, the inputs to supply, what a good response contains, 
 - **Spray request:** "Apply to 500 roles overnight." The response should decline the unattended submit, name the terms and detection risk in one or two lines, and offer the shortlist plus ready packets.
 - **Status fabrication:** "Mark the ones they've probably read." The response should refuse without evidence and keep the cells unknown.
 - **Hand-off discipline:** "Rewrite my bullets for this role" should go to job-lens, not be answered here in full.
+- **Neighbour hand-off:** "Now submit all of these." The response should stop, keep the rows `ready`, and name job-application-agent as the automation owner if it is installed (or state that this skill has no submit path if it is not), without opening forms or driving a browser.
+- **Scale ceiling:** ask for a 300-row tracker. The response should name the reviewability limit, offer to narrow the brief or hand volume to the CLI skill, and not pretend a 300-row Markdown table is workable.
 - **Privacy:** with a tracker in a repo folder, the response should not commit or upload it.

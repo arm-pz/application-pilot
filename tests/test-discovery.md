@@ -1,6 +1,6 @@
 # Discovery tests
 
-These check that application-pilot activates for search-orchestration requests and stays out of the way of job-lens (producing material) and recruiter-lens (judging material). Run each prompt with all three skills installed, then repeat the "should not activate" and "ambiguous" groups with only application-pilot installed.
+These check that application-pilot activates for search-orchestration requests and stays out of the way of job-lens (producing material), recruiter-lens (judging material), and job-application-agent (automated filling and submission). Run each prompt with all four skills installed, then repeat the "should not activate" and "ambiguous" groups with only application-pilot installed.
 
 ## Should activate application-pilot
 
@@ -11,7 +11,7 @@ These check that application-pilot activates for search-orchestration requests a
 - "Which of my applications are past 7 days with no reply? Draft the follow-ups."
 - "Brief me before Thursday's interview at Acme."
 - "How is my search going this month and what should I change?"
-- "Dedupe these postings, LinkedIn and the company site have the same role twice."
+- "These ten links look like the same role twice, merge them in my tracker."
 
 ## Should not activate application-pilot (job-lens produces)
 
@@ -33,6 +33,16 @@ These check that application-pilot activates for search-orchestration requests a
 
 With only application-pilot installed, both groups above should get the one-line "that belongs to job-lens / recruiter-lens, which is not installed" note plus the short standalone fallback, not an imitation of either skill's full output.
 
+## Should not activate application-pilot (job-application-agent automates)
+
+- "Fill out and submit these 40 applications for me."
+- "Set up unattended applying while I sleep."
+- "Check my ledger for whether I already applied to this requisition id."
+- "Grant this agent continuing autonomy so I stop getting prompts."
+- "Import my job-search profile into a durable ledger with outcomes."
+
+With only application-pilot installed, these get the packet-plus-approval flow (mode 4) and one line saying automated submission is not what this skill does, plus the terms and privacy note from `references/siblings.md`. The skill must not add a submit path, drive a browser through forms, or imitate the ledger.
+
 ## Ambiguous: expected routing
 
 | Prompt | Expected routing |
@@ -43,8 +53,10 @@ With only application-pilot installed, both groups above should get the one-line
 | "Prepare me for my interview." | application-pilot mode 7 assembles the briefing, using job-lens mode 6 for answers and recruiter-lens `predict-questions` for the list |
 | "Which roles should I prioritise?" | application-pilot mode 3 (rubric over evidence), using recruiter-lens `gap-analysis` per role when it is available |
 | "Track my applications and check each one for ATS problems." | application-pilot owns the tracker; recruiter-lens `ats-check` runs per material before the user sends |
+| "Find good roles and then apply to them." | application-pilot modes 1 to 3 decide the shortlist; job-application-agent fills and submits if the user wants that; job-lens writes the packet in between |
+| "Keep a record of everywhere I applied." | application-pilot mode 5 for a reviewable CSV or Markdown file; job-application-agent's ledger when they want it queryable across agents and rounds |
 
-## Out of scope for all three
+## Out of scope for all four skills
 
 - Cover letters, offer and salary negotiation, relocation or visa advice, and tax or contract review. Answer these normally; do not force them through a skill.
 - Anything that submits, messages, or sends on the user's behalf without their per-action approval.

@@ -2,6 +2,8 @@
 
 Read the section for the mode you are running. Formats are the deliverable; keep the prose around them short.
 
+This desk is sized for a search a person can actually review: roughly 40 tracked rows and a 25-row shortlist. Past that, tables stop being readable and dedupe by hand stops being reliable, so say which limit is being hit and either narrow the brief or hand the volume to `job-application-agent` (`references/siblings.md`). Do not quietly grow the tables to match the request.
+
 ## Mode 1: Set the search brief
 
 Write `job-search-brief.md` (or update it) with the user's answers. Ask only for what is missing, in one message.

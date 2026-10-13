@@ -33,6 +33,21 @@ npx skills add arm-pz/job-lens --skill job-lens
 
 application-pilot hands material writing to job-lens and all judging to recruiter-lens, and works standalone when neither is installed.
 
+## If you also have job-application-agent installed
+
+`job-application-agent` is a different kind of tool: a Node CLI with keychain-backed profile storage, a source catalog, score gates, append-only ledgers, cloud leases, browser form filling, and an autonomy mode that submits without asking each time. It is not part of this family and this skill does not speak for it; read its own installed `SKILL.md` for what it actually does.
+
+They split cleanly. application-pilot decides what is worth applying to and keeps a file a human can read; job-application-agent pushes the forms. Ask for "fill and submit these 40" and it hands off rather than half-implementing automation. If you use both, read that skill's own docs first: its analytics default to sending structured usage plus your name and email to its maintainer, community sharing of job links is on by default, and bulk submission is exactly the behaviour LinkedIn's and Indeed's terms target. Its CLI documents `telemetry disable`, `telemetry identity disable`, and `sources sharing disable`.
+
+| | application-pilot | job-application-agent |
+|---|---|---|
+| Form | Markdown and CSV | Node CLI with OS keychain and NDJSON ledgers |
+| Submission | never; you approve each one | can, including unattended under a stored grant |
+| Telemetry | none | structured usage plus name and email, on by default |
+| Good at | deciding, shortlisting, follow-ups, briefings | volume, dedupe across agents, durable accounting |
+
+## Modes
+
 | Mode | What you get |
 |---|---|
 | 1 Search brief | The criteria file that keeps the search honest: roles, level, non-negotiables, follow-up threshold |

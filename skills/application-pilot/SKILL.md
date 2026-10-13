@@ -13,8 +13,12 @@ description: >-
   the application material itself (a rewritten resume, bullets, summaries,
   LinkedIn rewrite, answer scripts): use job-lens. Not for judging material
   (scans, ATS checks, critique, rejection reasons, gap analysis): use
-  recruiter-lens. Never submits on the user's behalf; applications go out only
-  in batches the user approves.
+  recruiter-lens. Lightweight by design: Markdown and CSV that the user can
+  open and edit, no CLI, no cloud state, no telemetry, no browser automation.
+  Never submits on the user's behalf; applications go out only in batches the
+  user approves. If the job-application-agent skill is installed and the user
+  wants automated form filling, batch submission, or a programmatic ledger,
+  that skill owns it and this one stays out of the way.
 version: 1.0.0
 argument-hint: "[mode] [target]"
 user-invocable: true
@@ -28,15 +32,18 @@ Run a focused, honest, reviewable job search: criteria, discovery, fit scoring, 
 
 **Credits.** The workflow shape is adapted from a public prompt thread by @HeyAirahAi on X (October 2026). That thread's central move, sending hundreds of automated applications overnight, is deliberately not implemented here; see the submission rule below.
 
-## Where this skill ends and the siblings begin
+## Where this skill ends and the others begin
 
 | Skill | One-line job | It says |
 |---|---|---|
-| application-pilot | runs the search | "what should I apply to, where does it stand, what happens next" |
+| application-pilot | runs the search by hand | "what should I apply to, where does it stand, what happens next" |
 | job-lens | produces material | "write me the better version" |
 | recruiter-lens | judges material | "tell me what is wrong" |
+| job-application-agent | heavy automation | "fill and submit these for me" |
 
-Three skills sharing one subject must not share triggers. `references/siblings.md` holds the hand-off table and the exact wording that keeps the boundaries intact.
+Skills sharing one subject must not share triggers, or the wrong one fires half the time. `references/siblings.md` holds the hand-off table for job-lens and recruiter-lens, the precedence rule against job-application-agent, and the exact wording that keeps the boundaries intact.
+
+application-pilot is the desk, not the machine: a reviewed shortlist, one plain tracker file, drafts the user sends, and briefings. It has no CLI, no cloud state, no telemetry, and no browser submission path, and it does not acquire those to be more convenient.
 
 ## Step 1: Pick the mode
 
@@ -52,6 +59,8 @@ Match the request to a mode, then read the matching section of `references/modes
 | 6 | Follow-up queue | "what went quiet", "write the follow-ups" | tracker |
 | 7 | Interview briefing | "brief me before this interview" | scheduled role + company |
 | 8 | Funnel review | "how is my search going" | tracker history |
+
+If the request is really "fill these forms and submit them", that is the job-application-agent skill's job when it is installed; say so in one line and stop rather than half-implementing automation here. With only this skill installed, the answer is the same packet-plus-approval flow it always is.
 
 If the user gives a resume and a vague ask ("run my job search"), confirm the mode 1 brief in one short message, then run 2, 3, 5 and stop before any material work. Do not silently pick a target role.
 
@@ -94,4 +103,4 @@ Long outputs (a 40-role shortlist, a briefing) are easier to keep as a file. Off
 - `references/modes.md`: per-mode output formats and the mode 8 funnel math
 - `references/tracker.md`: tracker schema, status machine, dedupe key, aging rules
 - `references/sources.md`: where roles come from, what is allowed per source, date honesty
-- `references/siblings.md`: hand-off table and boundary wording for job-lens and recruiter-lens
+- `references/siblings.md`: hand-off table for job-lens and recruiter-lens, and the precedence rule against job-application-agent

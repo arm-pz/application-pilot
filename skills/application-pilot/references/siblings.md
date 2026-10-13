@@ -1,10 +1,11 @@
-# Working with the sibling skills
+# Working with the other job-search skills
 
-Three arm-pz skills share the same subject, so they must not share triggers. The one-line division:
+Skills sharing one subject must not share triggers, so the division is stated in all of them.
 
 - **recruiter-lens judges** ("tell me what is wrong")
 - **job-lens produces** ("write me the better version")
 - **application-pilot coordinates** ("what should I apply to, where does it stand, what happens next")
+- **job-application-agent automates** ("fill these forms and submit them")
 
 Command and mode names below were checked against the installed skills in October 2026. Where an installed skill behaves differently, trust the installed skill.
 
@@ -37,6 +38,23 @@ If a sibling is not installed, say so once and keep going with a short note that
 npx skills add arm-pz/job-lens --skill job-lens
 npx skills add arm-pz/recruiter-lens --skill recruiter-lens
 ```
+
+## The heavyweight neighbour: job-application-agent
+
+`job-application-agent` is a different kind of skill: an installed Node CLI with OS-keychain profile storage, a discovery-source catalog, score gates, append-only ledgers, cloud state and leases, browser form filling and uploads, and an autonomy mode that submits without a per-application prompt. It is not an arm-pz skill and this skill does not speak for it. Its behaviour below is read from its own `SKILL.md`; where the installed skill differs, trust the installed skill.
+
+| Owns | Why it is not this skill's |
+|---|---|
+| Filling and submitting applications, in batches or unattended | application-pilot has no submit path by design |
+| `score --stdin` gates, `ledger check`, duplicate requisition detection | deterministic code beats a Markdown table at this |
+| Cloud leases, rounds, attention queues, telemetry, outcome datasets | infrastructure, not a desk |
+| Verified-source catalogs and community-shared boards | it maintains them; this skill reads pages the user opens |
+
+Hand off, in one line, when: the user asks to auto-fill or auto-submit, wants the same job de-duplicated across many boards programmatically, wants a ledger that survives agents, or asks for outreach/bulk tracking at volume. Example: "That is automated submission, so it belongs to the job-application-agent skill if you have it installed; here is the packet and the tracker row for you to send."
+
+What stays here regardless: the search brief the user edits, the reviewed shortlist, follow-up drafts, interview briefings, the funnel read, and every hand-off to job-lens and recruiter-lens. A user can run both skills at once, and often should: this one decides what is worth applying to, that one pushes the forms.
+
+Say plainly, without editorialising, if the user is about to rely on the neighbour for volume: automated submission is where LinkedIn's and Indeed's terms bite, and its analytics defaults share structured usage plus the candidate's name and email with the maintainer, with community sharing of job links on by default. Point at its own `telemetry disable`, `telemetry identity disable`, and `sources sharing disable` commands. Do not change its state yourself, and do not touch its stored autonomy grant unless the user asks.
 
 ## Reciprocal boundary wording
 
