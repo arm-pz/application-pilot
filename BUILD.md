@@ -92,9 +92,14 @@ Flat installs were re-synced from the clones and verified byte-identical with `d
 - bodies well under 500 lines (80 / 68 / 105), no `TODO:` markers, no extraneous files in the skill folders
 - `marketplace.json` parses, nine plugins, `application-pilot` resolves to `arm-pz/application-pilot`
 
+## Step 7: Discovery audit before the remote exists
+
+Ran the `findable` skill's audit on the not-yet-public repo, because this is the only moment a rename is free. Findings in `docs/discovery-kit.md`; the one that changes the plan is the name. "application pilot" is an aviation job title, so the phrase returns crop-duster listings rather than software, `Obada-barakat/ApplicationPilot` already does application tracking under that name, `-pilot` is the busiest suffix in the agent-skill namespace, and it rhymes with a 156-star incumbent (`vaibhavarora14/job-application-agent`, the skill installed on this machine). Audit surfaced three further gaps: no remote, no site page, no release. Kit drafted with About at 346 characters and 12 topics, verified with `check_listing.py`, nothing applied.
+
 ## Open
 
-- Create the `arm-pz/application-pilot` remote and push (local commits only so far; four repos touched).
+- **Decide the name** (`docs/discovery-kit.md` section 2). Renaming is free right now and expensive after the push.
+- Create the `arm-pz/<name>` remote and push. Four repos carry unpushed commits: application-pilot (4), job-lens (1), recruiter-lens (1), caffeinity-skills (1).
 - `gh` on this machine is the npm shim and crashes with a TypeError, so repo creation needs either a working `gh` or the browser.
 - Run the discovery tests for real: install all four skills in one session and check which fires for each prompt in `tests/test-discovery.md`.
 - Test mode 2 against a live search, where the date-honesty rules actually bite.
