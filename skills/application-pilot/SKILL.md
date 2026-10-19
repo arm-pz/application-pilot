@@ -15,11 +15,11 @@ description: >-
   every application. If job-application-agent is installed and the user wants
   automated filling, batch submission, or a programmatic ledger, that skill owns
   it.
-version: 1.0.0
+version: 1.0.1
 argument-hint: "[mode] [target]"
 user-invocable: true
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Application Pilot

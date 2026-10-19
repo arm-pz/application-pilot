@@ -127,12 +127,14 @@ the search around both.
 
 The disambiguation line is required as long as the aviation-results and same-name projects exist, and useful regardless of the name choice.
 
-## 5. Release notes (shipped as v1.0.0, 2026-10-19)
+## 5. Release notes (shipped as v1.0.0, then v1.0.1, both 2026-10-19)
 
-Shipped text differs from the draft below in three ways: the version is 1.0.0
-to match `SKILL.md` and `.claude-plugin/plugin.json`, `<name>` is filled in as
-`application-pilot`, and the sibling named in the hand-off bullet is
-`applicant-kit`, not job-lens. Release body was verified against
+v1.0.1 exists because the v1.0.0 skill files still handed off to `job-lens`, a
+skill renamed to `applicant-kit` on 2026-10-15; the tag is not moved once
+published, so the fix ships as a patch. Draft differences from what shipped: the
+version matches `SKILL.md` and `.claude-plugin/plugin.json`, `<name>` is filled
+in as `application-pilot`, and the sibling named in the hand-off bullet is
+`applicant-kit`, not job-lens. Release bodies were verified against
 `releases/latest` (only a trailing newline differs).
 
 ```markdown
