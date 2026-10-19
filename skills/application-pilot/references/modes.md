@@ -52,13 +52,13 @@ Rubric (weights stated, evidence-based only):
 | Role | Employer | Score | Strong matches | Gaps | Verdict |
 |---|---|---|---|---|---|
 
-Verdict is one of `apply`, `apply with gaps named`, `skip`. Each gap names the JD line it comes from and whether it is a real absence or a presentation problem (a presentation problem becomes a `job-lens` task; a real absence stays a gap and never gets smuggled into the resume).
+Verdict is one of `apply`, `apply with gaps named`, `skip`. Each gap names the JD line it comes from and whether it is a real absence or a presentation problem (a presentation problem becomes a `applicant-kit` task; a real absence stays a gap and never gets smuggled into the resume).
 
 ## Mode 4: Build the application packet
 
 Per selected role, in this order:
 
-1. Hand the JD and resume to `job-lens` (its modes 1, 3, then 2 and 4 as needed) for the tailored resume and keyword work.
+1. Hand the JD and resume to `applicant-kit` (its modes 1, 3, then 2 and 4 as needed) for the tailored resume and keyword work.
 2. Hand the result to `recruiter-lens` (`ats-check`, then `critique`) when available.
 3. Report the target: role, employer, URL, and what the user is about to send.
 4. List anything still unverified: `[salary band?]`, `[recruiter name?]`.
@@ -98,7 +98,7 @@ Open gaps to admit gracefully: <the honest one-liner for each gap mode 3 found>
 Logistics unknowns: <panel, format, length, travel>
 ```
 
-Question drafting belongs to `job-lens` mode 6 (and `recruiter-lens` `predict-questions` for the list). This mode assembles it with the company and JD context and keeps it in one file the user can read the morning of.
+Question drafting belongs to `applicant-kit` mode 6 (and `recruiter-lens` `predict-questions` for the list). This mode assembles it with the company and JD context and keeps it in one file the user can read the morning of.
 
 ## Mode 8: Funnel review
 

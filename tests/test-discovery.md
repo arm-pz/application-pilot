@@ -1,6 +1,6 @@
 # Discovery tests
 
-These check that application-pilot activates for search-orchestration requests and stays out of the way of job-lens (producing material), recruiter-lens (judging material), and job-application-agent (automated filling and submission). Run each prompt with all four skills installed, then repeat the "should not activate" and "ambiguous" groups with only application-pilot installed.
+These check that application-pilot activates for search-orchestration requests and stays out of the way of applicant-kit (producing material), recruiter-lens (judging material), and job-application-agent (automated filling and submission). Run each prompt with all four skills installed, then repeat the "should not activate" and "ambiguous" groups with only application-pilot installed.
 
 ## Should activate application-pilot
 
@@ -13,7 +13,7 @@ These check that application-pilot activates for search-orchestration requests a
 - "How is my search going this month and what should I change?"
 - "These ten links look like the same role twice, merge them in my tracker."
 
-## Should not activate application-pilot (job-lens produces)
+## Should not activate application-pilot (applicant-kit produces)
 
 - "Rewrite my resume bullets for this role."
 - "Decode this JD and tailor my resume to it."
@@ -31,7 +31,7 @@ These check that application-pilot activates for search-orchestration requests a
 - "Audit my LinkedIn profile."
 - "Is it okay to use AI to write my resume?"
 
-With only application-pilot installed, both groups above should get the one-line "that belongs to job-lens / recruiter-lens, which is not installed" note plus the short standalone fallback, not an imitation of either skill's full output.
+With only application-pilot installed, both groups above should get the one-line "that belongs to applicant-kit / recruiter-lens, which is not installed" note plus the short standalone fallback, not an imitation of either skill's full output.
 
 ## Should not activate application-pilot (job-application-agent automates)
 
@@ -47,13 +47,13 @@ With only application-pilot installed, these get the packet-plus-approval flow (
 
 | Prompt | Expected routing |
 |---|---|
-| "Here is my resume. Help me get a job." | application-pilot mode 1 confirms the brief, then modes 2, 3, 5; hands mode 4 work to job-lens |
+| "Here is my resume. Help me get a job." | application-pilot mode 1 confirms the brief, then modes 2, 3, 5; hands mode 4 work to applicant-kit |
 | "Apply to the 500 highest-compatibility roles while I sleep." | application-pilot declines the unattended submit, explains the board terms and detection risk, offers the reviewed shortlist plus ready-to-send packets |
-| "Find this job and write me a resume for it." | application-pilot modes 2 and 3 to identify it, then job-lens mode 1 to write it |
-| "Prepare me for my interview." | application-pilot mode 7 assembles the briefing, using job-lens mode 6 for answers and recruiter-lens `predict-questions` for the list |
+| "Find this job and write me a resume for it." | application-pilot modes 2 and 3 to identify it, then applicant-kit mode 1 to write it |
+| "Prepare me for my interview." | application-pilot mode 7 assembles the briefing, using applicant-kit mode 6 for answers and recruiter-lens `predict-questions` for the list |
 | "Which roles should I prioritise?" | application-pilot mode 3 (rubric over evidence), using recruiter-lens `gap-analysis` per role when it is available |
 | "Track my applications and check each one for ATS problems." | application-pilot owns the tracker; recruiter-lens `ats-check` runs per material before the user sends |
-| "Find good roles and then apply to them." | application-pilot modes 1 to 3 decide the shortlist; job-application-agent fills and submits if the user wants that; job-lens writes the packet in between |
+| "Find good roles and then apply to them." | application-pilot modes 1 to 3 decide the shortlist; job-application-agent fills and submits if the user wants that; applicant-kit writes the packet in between |
 | "Keep a record of everywhere I applied." | application-pilot mode 5 for a reviewable CSV or Markdown file; job-application-agent's ledger when they want it queryable across agents and rounds |
 
 ## Out of scope for all four skills

@@ -9,7 +9,7 @@ description: >-
   follow up on roles: "find backend roles posted this week", "build my
   application tracker", "brief me before Thursday's interview". Not for writing
   application material (resume, bullets, summaries, LinkedIn, answer scripts):
-  use job-lens. Not for judging (scans, ATS checks, critique, rejection reasons,
+  use applicant-kit. Not for judging (scans, ATS checks, critique, rejection reasons,
   gap analysis): use recruiter-lens. Markdown and CSV only: no CLI, no cloud
   state, no telemetry, no browser automation, no submit path; the user approves
   every application. If job-application-agent is installed and the user wants
@@ -24,7 +24,7 @@ metadata:
 
 # Application Pilot
 
-Run a focused, honest, reviewable job search: criteria, discovery, fit scoring, tracker, follow-ups, interview briefings, and a weekly read of what is working. This skill coordinates the search; `job-lens` writes the material and `recruiter-lens` judges it.
+Run a focused, honest, reviewable job search: criteria, discovery, fit scoring, tracker, follow-ups, interview briefings, and a weekly read of what is working. This skill coordinates the search; `applicant-kit` writes the material and `recruiter-lens` judges it.
 
 **Credits.** The workflow shape is adapted from a public prompt thread by @HeyAirahAi on X (October 2026). That thread's central move, sending hundreds of automated applications overnight, is deliberately not implemented here; see the submission rule below.
 
@@ -33,11 +33,11 @@ Run a focused, honest, reviewable job search: criteria, discovery, fit scoring, 
 | Skill | One-line job | It says |
 |---|---|---|
 | application-pilot | runs the search by hand | "what should I apply to, where does it stand, what happens next" |
-| job-lens | produces material | "write me the better version" |
+| applicant-kit | produces material | "write me the better version" |
 | recruiter-lens | judges material | "tell me what is wrong" |
 | job-application-agent | heavy automation | "fill and submit these for me" |
 
-Skills sharing one subject must not share triggers, or the wrong one fires half the time. `references/siblings.md` holds the hand-off table for job-lens and recruiter-lens, the precedence rule against job-application-agent, and the exact wording that keeps the boundaries intact.
+Skills sharing one subject must not share triggers, or the wrong one fires half the time. `references/siblings.md` holds the hand-off table for applicant-kit and recruiter-lens, the precedence rule against job-application-agent, and the exact wording that keeps the boundaries intact.
 
 application-pilot is the desk, not the machine: a reviewed shortlist, one plain tracker file, drafts the user sends, and briefings. It has no CLI, no cloud state, no telemetry, and no browser submission path, and it does not acquire those to be more convenient.
 
@@ -50,7 +50,7 @@ Match the request to a mode, then read the matching section of `references/modes
 | 1 | Set the search brief | "help me decide what to apply for" | role, level, location, constraints |
 | 2 | Discover roles | "find roles matching my brief from this week" | brief (mode 1) |
 | 3 | Score fit | "which of these are worth my time" | list of roles + resume |
-| 4 | Build the packet | "get this one ready to send" | one role + resume (hand-off to job-lens) |
+| 4 | Build the packet | "get this one ready to send" | one role + resume (hand-off to applicant-kit) |
 | 5 | Track applications | "build/update my tracker" | applications so far |
 | 6 | Follow-up queue | "what went quiet", "write the follow-ups" | tracker |
 | 7 | Interview briefing | "brief me before this interview" | scheduled role + company |
@@ -83,7 +83,7 @@ Discovery, scoring, and tracking feed each other, so keep the artifacts current 
 1. Mode 1 writes the search brief to a file the user can edit.
 2. Mode 2 collects roles against it, deduped by the key in `references/tracker.md`.
 3. Mode 3 ranks them; the user picks the shortlist.
-4. Mode 4 hands each shortlisted role to `job-lens`, then to `recruiter-lens` for a check before sending.
+4. Mode 4 hands each shortlisted role to `applicant-kit`, then to `recruiter-lens` for a check before sending.
 5. Mode 5 records what the user actually submitted.
 6. Mode 6 works the aging queue from the tracker and drafts, never sends.
 7. Mode 7 briefs on confirmed interviews; mode 8 reads the funnel weekly.
@@ -92,11 +92,11 @@ Long outputs (a 40-role shortlist, a briefing) are easier to keep as a file. Off
 
 ## Standalone behaviour
 
-`job-lens` and `recruiter-lens` make modes 4 and 7 stronger but are not required. When either is missing, say so once, do the coordination work yourself with a short note that a sibling does it better, and offer the install line rather than imitating their full output.
+`applicant-kit` and `recruiter-lens` make modes 4 and 7 stronger but are not required. When either is missing, say so once, do the coordination work yourself with a short note that a sibling does it better, and offer the install line rather than imitating their full output.
 
 ## Resources
 
 - `references/modes.md`: per-mode output formats and the mode 8 funnel math
 - `references/tracker.md`: tracker schema, status machine, dedupe key, aging rules
 - `references/sources.md`: where roles come from, what is allowed per source, date honesty
-- `references/siblings.md`: hand-off table for job-lens and recruiter-lens, and the precedence rule against job-application-agent
+- `references/siblings.md`: hand-off table for applicant-kit and recruiter-lens, and the precedence rule against job-application-agent

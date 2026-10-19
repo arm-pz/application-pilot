@@ -23,15 +23,15 @@ So application-pilot prepares everything up to the send button and stops. You ap
 | Skill | Job | Says |
 |---|---|---|
 | [recruiter-lens](https://github.com/arm-pz/recruiter-lens) | judges | "tell me what is wrong" |
-| [job-lens](https://github.com/arm-pz/job-lens) | produces | "write me the better version" |
+| [applicant-kit](https://github.com/arm-pz/applicant-kit) | produces | "write me the better version" |
 | application-pilot | coordinates | "what should I apply to, where does it stand, what happens next" |
 
 ```
 npx skills add arm-pz/recruiter-lens --skill recruiter-lens
-npx skills add arm-pz/job-lens --skill job-lens
+npx skills add arm-pz/applicant-kit --skill applicant-kit
 ```
 
-application-pilot hands material writing to job-lens and all judging to recruiter-lens, and works standalone when neither is installed.
+application-pilot hands material writing to applicant-kit and all judging to recruiter-lens, and works standalone when neither is installed.
 
 ## If you also have job-application-agent installed
 
@@ -53,7 +53,7 @@ They split cleanly. application-pilot decides what is worth applying to and keep
 | 1 Search brief | The criteria file that keeps the search honest: roles, level, non-negotiables, follow-up threshold |
 | 2 Discover | Deduped shortlist table with exact links and posting dates, `unknown` where a date is not stated |
 | 3 Score fit | Stated rubric, matched evidence per role, named gaps, and an apply or skip verdict |
-| 4 Packet | job-lens tailors the material, recruiter-lens checks it, then the target is shown to you and you send it |
+| 4 Packet | applicant-kit tailors the material, recruiter-lens checks it, then the target is shown to you and you send it |
 | 5 Track | CSV or Markdown tracker with a fixed status machine; a row only becomes submitted when you say it did |
 | 6 Follow-up | Aging queue past your threshold, plus short role-specific drafts under 90 words, never sent for you |
 | 7 Briefing | Company and JD context, likely questions, evidence-based answer outlines, questions to ask them |
