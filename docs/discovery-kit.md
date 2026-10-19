@@ -127,7 +127,13 @@ the search around both.
 
 The disambiguation line is required as long as the aviation-results and same-name projects exist, and useful regardless of the name choice.
 
-## 5. Release notes
+## 5. Release notes (shipped as v1.0.0, 2026-10-19)
+
+Shipped text differs from the draft below in three ways: the version is 1.0.0
+to match `SKILL.md` and `.claude-plugin/plugin.json`, `<name>` is filled in as
+`application-pilot`, and the sibling named in the hand-off bullet is
+`applicant-kit`, not job-lens. Release body was verified against
+`releases/latest` (only a trailing newline differs).
 
 ```markdown
 ## <name> v0.1.0
@@ -152,6 +158,8 @@ Install: `npx skills add arm-pz/<name> --skill <name>`
 
 Not drafted. No `skills.caffeinity.com` page can be written honestly until the repo is public, and the sibling pages already follow a shape to match. Slot: `docs/site/<name>.md`, title `<name> — job search tracker, shortlist and follow-ups`, description under 155 characters, install line, the four example prompts from section 4, and the same disambiguation paragraph.
 
+**Superseded 2026-10-19:** the repo is public, so a page was authored against the sibling template instead of this slot. It is live at `https://skills.caffeinity.com/application-pilot/` with the tarball `agent-skills/application-pilot.tar.gz` (`sha256:354c6f3c…`), listed in both discovery indexes, the sitemap and the hub. The page says "applicant-kit produces" where `SKILL.md` still says job-lens; fix the repo, not the page.
+
 ## 7. Distribution
 
 Candidate listings that the audit found carrying this category. **Submission rules for each were not checked**; verify before preparing entries, and do not submit to more than one place in a day.
@@ -167,12 +175,15 @@ One honest constraint for every entry text: this skill does not apply for you. S
 
 ## 8. Apply commands
 
-Nothing run. `gh` on this machine is the npm shim and crashes with a TypeError, so either fix that or use the browser for repo creation, then:
+Applied as of 2026-10-19: remote and pushes exist, description (315 chars) and
+15 topics are set, homepage is `https://skills.caffeinity.com/application-pilot`,
+licence reads MIT, and `v1.0.0` is released. The commands below are the original
+draft and are kept for the record; do not re-run them.
 
 ```bash
 # after the remote exists and the first push is done
 git push -u origin master
-gh release create v0.1.0 --title "v0.1.0" --notes "$(cat docs/release-notes.md)"
+gh release create v1.0.0 --title "application-pilot v1.0.0" --notes-file <release-notes.md>
 gh repo edit arm-pz/<name> \
   --description "<About text from section 3>" \
   --add-topic job-search,job-application,application-tracker,interview-prep,resume,agent-skills,claude-code-skill,cursor,codex,qoder,markdown,follow-up
